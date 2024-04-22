@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Browser</title>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 py-8 px-4">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4">Welcome to the Student Browser</h1>
+    
+    <h2 class="text-2xl font-semibold mb-2">Find Cheaper Deals</h2>
+    <form id="dealFinderForm" class="mb-4">
+      <label for="product" class="block mb-2">Product:</label>
+      <input type="text" id="product" name="product" class="w-full border rounded py-2 px-3 mb-2">
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Find Deals</button>
+    </form>
+    <div id="dealResults"></div>
+
+    <h2 class="text-2xl font-semibold mb-2">Generate Citation</h2>
+    <form id="citationGeneratorForm" class="mb-4">
+      <label for="url" class="block mb-2">URL:</label>
+      <input type="text" id="url" name="url" class="w-full border rounded py-2 px-3 mb-2">
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Generate Citation</button>
+    </form>
+    <div id="citationResult"></div>
+  </div>
+
+  <script>
+    // Function to find deals
+    document.getElementById('dealFinderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const product = document.getElementById('product').value;
+      findDeals(product);
+    });
+
+    function findDeals(product) {
+      // Placeholder function to simulate finding deals
+      const deals = [
+        { name: 'Deal 1', price: 19.99 },
+        { name: 'Deal 2', price: 15.99 },
+        { name: 'Deal 3', price: 24.99 }
+      ];
+
+      // Displaying results
+      const dealResults = document.getElementById('dealResults');
+      dealResults.innerHTML = '<h3 class="text-xl font-semibold mb-2">Results:</h3>';
+      deals.forEach(deal => {
+        dealResults.innerHTML += `<p>${deal.name}: $${deal.price}</p>`;
+      });
+    }
+
+    // Function to generate citation
+    document.getElementById('citationGeneratorForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const url = document.getElementById('url').value;
+      generateCitation(url);
+    });
+
+    function generateCitation(url) {
+      // Placeholder function to simulate generating citation
+      const citation = `Author: John Doe, Title: Sample Article, Publication Date: January 1, 2024, URL: ${url}`;
+
+      // Displaying result
+      const citationResult = document.getElementById('citationResult');
+      citationResult.innerHTML = '<h3 class="text-xl font-semibold mb-2">Citation:</h3>';
+      citationResult.innerHTML += `<p>${citation}</p>`;
+    }
+  </script>
+</body>
+</html>
